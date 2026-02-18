@@ -1,0 +1,33 @@
+.figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.svg {
+    width: 300px;
+    height: 300px;
+}
+
+@media (min-width: 713px) and (max-width: 1177px) {
+    .figure {
+        padding: 0.8rem;
+    }
+
+    .svg {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 712px) {
+    .figure {
+        padding: 0.5rem;
+    }
+
+    .svg {
+        width: 250px;
+        height: 250px;
+    }
+}

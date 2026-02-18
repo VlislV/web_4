@@ -1,0 +1,184 @@
+.fullPage{
+    min-height: calc(100vh - 80px);
+}
+
+.formUnit {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formUnit label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+}
+
+.formUnit input {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.formUnit input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+}
+
+.formUnit input::placeholder {
+    color: #999;
+}
+
+.buttonActive{
+  background-color: #e0e0e0;
+  transform: scale(0.98);
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  min-width: 45px;
+}
+
+.button{
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  min-width: 45px;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.buttonSubmit {
+  flex: 2;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonReset {
+  flex: 2;
+  padding: 12px;
+  background-color:  #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+input[type="text"] {
+    width: 90%;
+    display: flex;
+    padding: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="password"] {
+    width: 90%;
+    display: flex;
+    padding: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.formUnit input:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+}
+
+.formUnit input:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+}
+@media (min-width: 1178px) {
+  .formUnit {
+    max-width: 320px;
+  }
+
+  .buttonGroup {
+    gap: 12px;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 713px) and (max-width: 1177px) {
+  .formUnit {
+    max-width: 100%;
+  }
+
+  .buttonGroup {
+    gap: 10px;
+  }
+
+  .button, .buttonActive {
+    min-width: 40px;
+    padding: 8px 12px;
+  }
+
+  .input {
+    width: 95%;
+  }
+}
+
+@media (max-width: 712px) {
+  .formUnit {
+    width: 100%;
+  }
+
+  .buttonGroup {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .button, .buttonActive {
+    min-width: 45px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .buttonSubmit, .buttonReset {
+    flex: 1;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  .errorMessage {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

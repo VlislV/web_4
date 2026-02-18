@@ -1,0 +1,159 @@
+.wrapper {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.wrapper h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+}
+
+.fullPage{
+    min-height: calc(100vh - 80px);
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.submit {
+    padding: 14px;
+    background: darkblue;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(52,152,219,0.3);
+}
+
+.submit:active {
+    transform: translateY(0);
+}
+
+.toggleButton {
+    padding: 12px;
+    background: transparent;
+    color: #3498db;
+    border: 2px solid darkblue;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.toggleButton:hover {
+    background: darkblue;
+    color: white;
+}
+
+.error-message {
+    padding: 12px;
+    background: #fdeded;
+    color: #e74c3c;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    border-left: 4px solid #e74c3c;
+}
+
+@media (min-width: 1178px) {
+  .wrapper {
+    max-width: 400px;
+    padding: 30px;
+  }
+
+  .submit {
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 713px) and (max-width: 1177px) {
+  .wrapper {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 25px;
+  }
+
+  .wrapper h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  .loginForm {
+    gap: 18px;
+  }
+
+  .submit {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .toggleButton {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 712px) {
+  .wrapper {
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+  }
+
+  .wrapper h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .loginForm {
+    gap: 15px;
+  }
+
+  .loginForm input {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .loginForm label {
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .submit {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .toggleButton {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .errorMessage {
+    padding: 10px;
+    font-size: 13px;
+  }
+}

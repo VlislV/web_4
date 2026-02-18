@@ -1,0 +1,35 @@
+header {
+    background: linear-gradient(135deg, #022241, #34495e);
+    color: #ffffff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+header {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 713px) and (max-width: 1177px) {
+    header {
+        padding: 0.8rem 15px;
+        font-size: 16px;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 712px) {
+    header {
+        padding: 0.5rem 10px;
+        font-size: 14px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+    }
+}

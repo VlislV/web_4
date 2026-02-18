@@ -1,0 +1,85 @@
+.fullPage {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.wrapper {
+    flex: 1;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.button{
+  padding: 8px 16px;
+  margin: 10px auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  min-width: 45px;
+}
+@media (min-width: 1178px) {
+  .fullPage {
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .wrapper {
+    max-width: 400px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 713px) and (max-width: 1177px) {
+  .fullPage {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .wrapper {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 712px) {
+  .fullPage {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .wrapper {
+    max-width: 100%;
+    margin: 15px auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 100%;
+    margin: 15px auto;
+    padding: 12px;
+    font-size: 16px;
+  }
+}

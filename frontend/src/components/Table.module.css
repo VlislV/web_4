@@ -1,0 +1,88 @@
+.pointTable {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+table {
+  width: 100%;
+  margin: 10px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th {
+  background: #f8f9fa;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.empty-message,
+.error-message {
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  color: #6c757d;
+}
+
+.error-message {
+  color: #dc3545;
+  background: #fff5f5;
+}
+@media (min-width: 1178px) {
+  .pointTable {
+    max-width: 100%;
+  }
+
+  table {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 713px) and (max-width: 1177px) {
+  .pointTable {
+    max-width: 100%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 712px) {
+  .pointTable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 500px;
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px 6px;
+    white-space: nowrap;
+  }
+
+  .emptyMessage,
+  .errorMessage {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
