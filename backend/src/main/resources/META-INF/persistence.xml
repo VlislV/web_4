@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence">
+    <persistence-unit name="default" transaction-type="JTA">
+        <jta-data-source>java:/PostgresDS</jta-data-source>
+        <class>beans.User</class>
+        <class>beans.Point</class>
+
+        <properties>
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
+        </properties>
+    </persistence-unit>
+</persistence>
