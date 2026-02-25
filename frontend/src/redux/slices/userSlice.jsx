@@ -13,11 +13,6 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
     reducers: {
-        logout: (state) => {
-            state.username = null;
-            state.isAuthenticated = false;
-            state.userError = null;
-        }
     },
     extraReducers: (builder) => {
         builder
@@ -55,14 +50,22 @@ const userSlice = createSlice({
                     state.userError = "";
                   }
                 )
-                .addMatcher(
-                  mainApi.endpoints.register.matchRejected,
-                  (state, { payload, error }) => {
-                    state.userError = payload?.message || error?.message || 'Ошибка регистрации';
-                  }
-                );
+            .addMatcher(
+              mainApi.endpoints.register.matchRejected,
+              (state, { payload, error }) => {
+                state.userError = payload?.message || error?.message || 'Ошибка регистрации';
+              }
+            )
+         .addMatcher(
+                mainApi.endpoints.logout.matchFulfilled,
+                (state) => {
+                  state.username = null;
+                  state.isAuthenticated = false;
+                  state.userError = null;
+                }
+              )
+
             }
 });
 
-export const { logout } = userSlice.actions;
 export default userSlice.reducer;

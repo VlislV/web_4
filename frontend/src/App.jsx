@@ -1,5 +1,6 @@
 import { Link, Routes, Route, Navigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect} from 'react'
 import './App.css'
 
 import Login from './pages/Login'
@@ -10,14 +11,17 @@ import SecureRouting from './pages/SecureRouting'
 
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
+import { useGetPointsQuery } from './redux/api/mainApi';
 
-function App() {
+function AppContent() {
+
+    const navigate = useNavigate();
   return (
     <div className="app">
          <Header />
          <div className="main-content">
-    <Provider store={store}>
       <Routes>
+
         <Route path="/" element={<Login/>} />
         <Route path="*" element={<Navigate to="/" replace />} />
          <Route path="/main" element={
@@ -26,11 +30,18 @@ function App() {
                   </SecureRouting>
                 } />
       </Routes>
-    </Provider>
     </div>
     <Footer />
     </div>
   )
+}
+
+function App() {
+  return (
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
+  );
 }
 
 
