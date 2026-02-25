@@ -2,10 +2,12 @@ package api;
 
 import DTOs.UserDTO;
 import Utils.CastomException;
+import api.annotations.GenJWTinSuccess;
 import beans.UserManager;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
 
 import java.util.Collections;
@@ -27,10 +29,11 @@ public class UserResource {
 
     @POST
     @Path("/register")
+    @GenJWTinSuccess
     public Response register(UserDTO userDTO) {
         try {
-            String result = um.register(userDTO.getUsername(), userDTO.getPassword());
-            Map<String, String> body = Collections.singletonMap("data", result);
+            um.register(userDTO.getUsername(), userDTO.getPassword());
+            Map<String, String> body = Collections.singletonMap("username", userDTO.getUsername());
             return addCorsHeaders(Response.ok().entity(body));
         } catch (CastomException e) {
             return addCorsHeaders(Response.status(Response.Status.valueOf(e.getMessage())));
@@ -43,11 +46,12 @@ public class UserResource {
 
     @POST
     @Path("/login")
+    @GenJWTinSuccess
     public Response login(UserDTO userDTO) {
         try {
             Boolean flag = um.login(userDTO.getUsername(), userDTO.getPassword());
             if (flag) {
-                Map<String, String> body = Collections.singletonMap("data", "Welcome, " + userDTO.getUsername() + "!");
+                Map<String, String> body = Collections.singletonMap("username", userDTO.getUsername());
                 return addCorsHeaders(Response.ok().entity(body));
             } else {
                 Map<String, String> body = Collections.singletonMap("message", "User with name '" + userDTO.getUsername() + "' not found");
@@ -61,6 +65,14 @@ public class UserResource {
             return addCorsHeaders(Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity(body));
         }
+    }
+
+    @POST
+    @Path("/logout")
+    @GenJWTinSuccess
+    public Response logout() {
+        return Response.ok("{\"message\":\"Logged out\"}")
+                .build();
     }
 
     private Response addCorsHeaders(Response.ResponseBuilder builder) {

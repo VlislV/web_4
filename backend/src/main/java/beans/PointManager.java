@@ -22,9 +22,10 @@ public class PointManager {
         return checker.check(point);
     }
 
-    public PointDTO addPoint(PointDTO dto) {
+    public PointDTO addPoint(PointDTO dto, String username) {
         try {
             Point entity = Converter.toEntity(dto);
+            entity.setUsername(username);
             em.persist(entity);
             return Converter.toDTO(entity);
         } catch (Exception e) {
@@ -33,9 +34,13 @@ public class PointManager {
         }
     }
 
-    public List<PointDTO> getPoints() {
+    public List<PointDTO> getPoints(String username) {
         try {
-            return Converter.toDTOList(em.createQuery("SELECT p FROM Point p", Point.class).getResultList());
+            return Converter.toDTOList(em.createQuery(
+                            "SELECT p FROM Point p WHERE p.username = :username",
+                            Point.class)
+                    .setParameter("username", username)
+                    .getResultList());
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);

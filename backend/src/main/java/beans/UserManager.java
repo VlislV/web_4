@@ -24,7 +24,7 @@ public class UserManager {
     private EntityManager em;
 
 
-    public String register(String username, String password)throws Exception {
+    public String register(String username, String password) throws Exception {
 
             if (em == null) {
                 logger.severe("EntityManager is NULL!");

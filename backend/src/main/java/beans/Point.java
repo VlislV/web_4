@@ -24,6 +24,9 @@ public class Point implements Serializable {
     @Column(name="result")
     private String result;
 
+    @Column(name="username")
+    private String username;
+
 }
 
 
